@@ -1,7 +1,16 @@
 <template>
   <q-page class="flex column flex-center">
-    <div v-for="(item, index) in data" :key="index">
-      <p>{{ item.nombre }}: <span>{{ item.color }}</span></p>
+    <div class="q-col-gutter-md row items-start">
+      <div v-for="(item, i) in data" :key="i" class="col-6">
+        <div 
+          style="width: 100%"
+        >
+          <div class="absolute-bottom text-subtitle1 text-center">
+           <h1>{{item.nombre}} </h1> 
+           <h2>{{item.color}}</h2>
+          </div>
+        </div>
+      </div>
     </div>
   </q-page>
 </template>
@@ -11,7 +20,7 @@ import { mapState, mapActions } from "vuex";
 
 export default {
   name: "PageIndex",
-  created () {
+  created() {
     this.getColores();
   },
   computed: {
@@ -19,6 +28,6 @@ export default {
   },
   methods: {
     ...mapActions("colores", ["getColores"])
-  },
+  }
 };
 </script>
