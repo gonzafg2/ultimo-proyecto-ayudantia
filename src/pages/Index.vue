@@ -1,18 +1,12 @@
 <template>
-  <q-page class="flex column flex-center">
-    <div class="q-col-gutter-md row items-start">
-      <div v-for="(item, i) in data" :key="i" class="col-6">
-        <div 
-          style="width: 100%"
-        >
-          <div class="absolute-bottom text-subtitle1 text-center">
-           <h1>{{item.nombre}} </h1> 
-           <h2>{{item.color}}</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </q-page>
+  <div class="q-pa-md row items-start q-gutter-md">
+    <q-card class="my-card col-3" v-for="(item, i) in data" :key="i" :style="{'background-color': item.color}">
+      <q-card-section style="color: white; text-align: center">
+        <p>{{ item.nombre }}</p>
+        <p>{{ item.color }}</p>
+      </q-card-section>
+    </q-card>
+  </div>
 </template>
 
 <script>
